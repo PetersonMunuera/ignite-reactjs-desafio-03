@@ -35,7 +35,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const addProduct = async (productId: number) => {
     try {
       const response = await api.get(`stock/${productId}`)
-      const stock = response.data
+      const stock: Stock = response.data
 
       const product = cart.find(product => product.id === productId)
 
@@ -86,7 +86,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       if (amount <= 0) return
 
       const response = await api.get(`stock/${productId}`)
-      const stock = response.data
+      const stock: Stock = response.data
 
       const product = cart.find(product => product.id === productId)
 
